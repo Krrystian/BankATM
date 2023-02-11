@@ -3,14 +3,15 @@
     <firstname>Admin</firstname>
     <lastname>Admin</lastname>
     <bankID>9999</bankID>
-    <pin>0000</pin>
-    <balance>979</balance>
+    <pin>0007</pin>
+    <balance>920</balance>
   </account>
+
   <account>
     <firstname>Guest</firstname>
     <lastname>Guest</lastname>
     <bankID>1234</bankID>
     <pin>1111</pin>
-    <balance>1200</balance>
+    <balance>1279</balance>
   </account>
 </bank>

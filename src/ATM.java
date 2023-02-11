@@ -58,6 +58,7 @@ public class ATM {
         boolean check = false;
 
         //System.out.println(prop);
+        System.out.println("-------------------------------------");
         System.out.println("Welcome to "+prop.get("atmName")+ " ATM");
         System.out.println("What do you want to do:");
         System.out.println("0 -- Bank transfer");
@@ -150,7 +151,7 @@ public class ATM {
             }
             case 5:{
                 int option;
-                System.out.println("Options");
+                System.out.println("Options: ");
                 System.out.println("1 -- Change ATM name");
                 System.out.println("2 -- Change transfer limit");
                 System.out.println("3 -- Change currency");
@@ -178,7 +179,6 @@ public class ATM {
             {
                 return false;
             }
-
         }
         return true;
     }

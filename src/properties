@@ -1,5 +1,5 @@
 #Thu Feb 09 00:21:25 CET 2023
 currencyShortcut=$
-transferLimit=2482
-atmName=Cafe
+transferLimit=3000
+atmName=National Bank
 currency=dollar

@@ -89,11 +89,11 @@ public class BankAccount {
         Transformer transformer = transformerFactory.newTransformer();
         DOMSource source = new DOMSource(doc);
         StreamResult result= new StreamResult(new File(FILENAME));
-        //transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        //transformer.setOutputProperty(OutputKeys.METHOD, "xml");
-        //transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
+//        transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+//        transformer.setOutputProperty(OutputKeys.METHOD, "xml");
+//        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
         transformer.transform(source, result);
-        //System.out.println("Data updated successfully!");
+//        System.out.println("Data updated successfully!");
     }
 
     private void readAccounts() throws IOException, SAXException, ParserConfigurationException {
@@ -102,7 +102,6 @@ public class BankAccount {
         doc = db.parse(new File(FILENAME));
     }
     private void makeNewAccount(Account account) throws TransformerException {
-        Node node = doc.getFirstChild();
         Element root=doc.getDocumentElement();
 
         Element el=doc.createElement("account");
@@ -135,7 +134,7 @@ public class BankAccount {
         root.appendChild(el);
         root.appendChild(doc.createTextNode("\n"));
         writeToXML();
-    };
+    }
 
     private boolean containsAccount(String id,Account account,String passwd) {
         NodeList list = doc.getElementsByTagName("account");
@@ -238,11 +237,12 @@ public class BankAccount {
                 makeNewAccount(newAccount);
 
 
-                break;
+                bankMenu();
 
             }
             case 2:
             {
+                System.out.println("-------------------------------------");
                 System.out.println("Account ID: ");
                 String ID = sc.next();
                 System.out.println("PIN: ");
@@ -255,14 +255,30 @@ public class BankAccount {
                     login = ATM.menu(account);
                     }
                 }
+                else{
+                    System.out.println("-------------------------------------");
+                    System.out.println("Incorrect ID or PIN!");
+                    System.out.println("-------------------------------------");
+                    bankMenu();
+                }
                 saveChanges(account);
+                System.out.println("-------------------------------------");
                 System.out.println("Data updated successfully!");
+                System.out.println("-------------------------------------");
+                System.out.println("1 -- Exit program \n2 -- Change account");
+                int ex;
+                do {
+                    ex = sc.nextInt();
+                }while (!(ex>=1 && ex <=2));
+                if(ex == 1){
+                    break;
+                }
+                else{
+                    System.out.println("-------------------------------------");
+                    bankMenu();
+                    break;
+                }
             }
         }
-    }
-
-    public static void main(String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException {
-        BankAccount bank = new BankAccount();
-        bank.bankMenu();
     }
 }
