@@ -4,7 +4,6 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
 
-
 public class ATM {
     private static final String FILENAME = "src/properties";
 

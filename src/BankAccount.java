@@ -235,8 +235,6 @@ public class BankAccount {
                 }while (pin.length()!=4);
                 newAccount.passwd=pin;
                 makeNewAccount(newAccount);
-
-
                 bankMenu();
 
             }
